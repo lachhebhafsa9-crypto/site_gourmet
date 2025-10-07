@@ -433,7 +433,6 @@ footer a {
 }
 
 .lang-menu input[type="checkbox"]:checked ~ ul {
-    background-color: white;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -443,4 +442,27 @@ footer a {
 
 .lang-menu li:hover {
     background-color: #d3d3d3;
+}
+
+.lang-menu:lang(ar) label {
+    border: solid 0.5px #fff;
+    color: #fff;
+}
+
+.lang-menu:lang(ar) li:hover,
+.lang-menu:lang(ar) label:hover
+{
+    background-color: #da8a8a;
+}
+
+.lang-menu:lang(ar) ul{
+    background-color: #723D3D;
+}
+
+.lang-menu:lang(fr) ul{
+    background-color: #fff;
+}
+
+nav:lang(ar) a{
+    color: #fff;
 }
