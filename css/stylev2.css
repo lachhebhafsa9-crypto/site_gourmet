@@ -7,17 +7,6 @@
     text-decoration: none;
 }
 
-html:lang(ar)  {
-    text-align: justify;
-    text-align-last: right;
-}
-
-footer:lang(ar) p {
-    text-align: center;
-    text-align-last: center;
-}
-
-/* CORRECTION IMPORTANTE */
 html, body {
     width: 100%;
     overflow-x: hidden;
@@ -40,7 +29,7 @@ header {
 }
 
 header:lang(fr) {
-      background-color: rgb(233, 230, 230);
+    background-color: rgb(233, 230, 230);
 }
 
 nav {
@@ -50,15 +39,13 @@ nav {
     height: 60px;
 }
 
-nav:lang(fr){
-    background-color: rgb(233, 230, 230);
-}
-
-nav:lang(ar){
+nav:lang(ar) {
     background-color: rgb(114, 61, 61);
     direction: rtl;
-    text-align: right;
+}
 
+nav:lang(fr) {
+    background-color: rgb(233, 230, 230);
 }
 
 .nav-brand a {
@@ -66,6 +53,10 @@ nav:lang(ar){
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: 3px;
+}
+
+nav:lang(ar) .nav-brand a {
+    color: white;
 }
 
 nav ul {
@@ -80,9 +71,13 @@ nav ul li a {
     padding: 8px 16px;
 }
 
-/* Hero Section - SIMPLIFIÉE */
+nav:lang(ar) ul li a {
+    color: white;
+}
+
+/* Hero Section */
 .hero {
-    margin-top: 60px; /* Pour le header fixe */
+    margin-top: 60px;
     position: relative;
     width: 100%;
 }
@@ -93,7 +88,7 @@ nav ul li a {
     display: block;
 }
 
-.hero img:lang(ar){
+.hero img:lang(ar) {
     height: 1100px;
 }
 
@@ -108,26 +103,12 @@ nav ul li a {
     font-size: 2.5rem;
     letter-spacing: 3px;
     font-weight: normal;
-    width: 95vw;
 }
 
-.hero-text h1 :lang(ar){
-    font-size: 4rem;
-}
-
-/* Sections principales */
-.about-section{
-	 width: 100%;
-    padding: 80px 20px 20px;
-} 
-.contact-section {
+/* Sections */
+.about-section, .menu-section, .contact-section {
     width: 100%;
     padding: 80px 20px;
-}
-
-.menu-section{
-	width: 100%;
-    padding: 20px 20px 80px;
 }
 
 .container {
@@ -138,20 +119,8 @@ nav ul li a {
     align-items: center;
 }
 
-.container:lang(ar) .menu-content{ 
-   padding-right: 20%;
-}
-
-/* إذا أردت تظليلاً بألوان */
-.highlight {
-    background-color: #fff3cd;
-    padding: 2px 4px;
-    border-radius: 3px;
-}
-
 /* Images */
-.about-image img, 
-.menu-image img {
+.about-image img, .menu-image img {
     width: 100%;
     max-width: 500px;
     height: 750px;
@@ -160,13 +129,11 @@ nav ul li a {
 }
 
 /* Content */
-.about-content, 
-.menu-content {
+.about-content, .menu-content {
     flex: 1;
 }
 
-.about-content h2,
-.menu-content h2 {
+.about-content h2, .menu-content h2 {
     font-size: 2.5rem;
     text-align: center;
     letter-spacing: 3px;
@@ -208,23 +175,18 @@ nav ul li a {
 /* Form */
 form {
     margin-top: 40px;
-    direction: rtl;
-    text-align: right;
 }
 
 .form-group {
     margin-bottom: 25px;
 }
 
-form input, 
-form textarea {
+form input, form textarea {
     width: 100%;
     padding: 15px 0;
     border: none;
     border-bottom: 1px solid #ccc;
     font-size: 1.2rem;
-    text-align: right;
-    font-family: 'Traditional Arabic', Arial, sans-serif;
 }
 
 form button {
@@ -244,58 +206,59 @@ footer {
     width: 100%;
 }
 
-footer a {
-    padding: auto;
-    margin-left: 7px;
+/* Ton blase */
+.monblase:lang(ar)::before {
+    font-family: "Traditional Arabic", "Times New Roman", serif;
+    direction: rtl;
+    unicode-bidi: embed;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: mediumpurple;
+    letter-spacing: 0;
+    content: "حفصة نسَيْبَة الأشهب";
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    
-    .about-image img,
-    .menu-image img {
-        height: 400px;
-    }
-    
-    .hero-text h1 {
-        font-size: 2rem;
-    }
+.monblase:lang(fr)::before {
+    content: "LACHHEB Hafsa";
 }
 
-/* Menu Hamburger - CACHER LA CHECKBOX */
+/* Menu Hamburger */
 .menu-btn {
-    display: none; /* Cache la checkbox */
+    display: none;
 }
 
 .menu-icon {
-    display: none; /* Cache par défaut */
+    display: none;
     cursor: pointer;
     padding: 28px 20px;
     position: relative;
-    user-select: none;
 }
 
 .menu-icon .navicon {
     background: #000;
     display: block;
     height: 2px;
-    position: relative;
-    transition: background 0.2s ease-out;
     width: 18px;
+    position: relative;
 }
 
-.menu-icon .navicon:before,
-.menu-icon .navicon:after {
+nav:lang(ar) .menu-icon .navicon {
+    background: white;
+}
+
+.menu-icon .navicon:before, .menu-icon .navicon:after {
     background: #000;
     content: '';
     display: block;
     height: 100%;
     position: absolute;
-    transition: all 0.2s ease-out;
     width: 100%;
+    transition: all 0.2s ease-out;
+}
+
+nav:lang(ar) .menu-icon .navicon:before,
+nav:lang(ar) .menu-icon .navicon:after {
+    background: white;
 }
 
 .menu-icon .navicon:before {
@@ -321,99 +284,7 @@ footer a {
     top: 0;
 }
 
-.monblase:lang(ar)::before {
-    font-family: "Traditional Arabic", "Times New Roman", serif;
-    direction: rtl;
-    unicode-bidi: embed;
-    font-weight: bold;
-    font-size: 1.3rem;
-    color: mediumpurple;
-    letter-spacing: 0; /* Important pour l'arabe */
-    content: "حفصة نسَيْبَة الأشهب";
-}
-
-.monblase:lang(fr)::before {
-    content: "LACHHEB Hafsa";
-}
-
-/* Responsive - Afficher le menu hamburger */
-@media (max-width: 768px) {
-    .menu-icon {
-        display: block; /* Affiche l'icône hamburger */
-    }
-    
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        padding: 20px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    }
-    
-    .menu-btn:checked ~ ul {
-        display: flex; /* Affiche le menu quand la checkbox est cochée */
-    }
-    
-    nav ul li {
-        margin: 10px 0;
-    }
-    
-    nav ul li a {
-        display: block;
-        padding: 15px;
-        text-align: center;
-    }
-    
-    .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .about-image img,
-    .menu-image img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .about-image img,
-    .menu-image img {
-        width: 100%;
-        height: auto;
-    }
-    
-    .menu-icon {
-        display: block;
-    }
-    
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        padding: 20px;
-    }
-    
-    .menu-btn:checked ~ ul {
-        display: flex;
-    }
-
-}
-
+/* Language Menu */
 .lang-menu input {
     display: none;
 }
@@ -423,25 +294,10 @@ footer a {
 }
 
 .lang-menu label {
-    border : solid 0.5px gray;
+    border: solid 0.5px gray;
     padding: 2px 4px;
     border-radius: 5px;
-}
-
-.lang-menu label:hover {
-    background-color: #777;
-}
-
-.lang-menu input[type="checkbox"]:checked ~ ul {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    gap : 5px;
-}
-
-.lang-menu li:hover {
-    background-color: #d3d3d3;
+    cursor: pointer;
 }
 
 .lang-menu:lang(ar) label {
@@ -449,20 +305,193 @@ footer a {
     color: #fff;
 }
 
-.lang-menu:lang(ar) li:hover,
-.lang-menu:lang(ar) label:hover
-{
-    background-color: #da8a8a;
+.lang-menu input:checked ~ ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    gap: 5px;
 }
 
-.lang-menu:lang(ar) ul{
+.lang-menu:lang(ar) ul {
     background-color: #723D3D;
 }
 
-.lang-menu:lang(fr) ul{
+.lang-menu:lang(fr) ul {
     background-color: #fff;
 }
 
-nav:lang(ar) a{
-    color: #fff;
+/* ===== CORRECTIONS ARABE ===== */
+html:lang(ar) {
+    direction: rtl;
+    text-align: right;
+}
+
+html:lang(ar) .about-content,
+html:lang(ar) .menu-content,
+html:lang(ar) .contact-section {
+    text-align: right;
+    direction: rtl;
+}
+
+html:lang(ar) form {
+    direction: rtl;
+    text-align: right;
+}
+
+html:lang(ar) form input,
+html:lang(ar) form textarea {
+    text-align: right;
+    direction: rtl;
+    font-family: 'Traditional Arabic', Arial, sans-serif;
+}
+
+html:lang(ar) .hero-text {
+    right: 20px;
+    left: auto;
+}
+
+/* Footer - Empêcher l'inversion pour l'arabe */
+footer:lang(ar) {
+    direction: ltr;
+    text-align: center;
+}
+
+footer:lang(ar) p {
+    direction: ltr;
+    text-align: center;
+}
+
+footer:lang(ar) .monblase {
+    direction: ltr;
+    unicode-bidi: embed;
+}
+
+footer:lang(ar) .bouton-langue {
+    direction: ltr;
+    display: inline-block;
+}
+
+/* ===== RESPONSIVE ARABE ===== */
+
+/* TABLETTE */
+@media (max-width: 1024px) {
+    html:lang(ar) .container {
+        gap: 40px;
+        padding: 0 20px;
+    }
+    
+    html:lang(ar) .about-image img,
+    html:lang(ar) .menu-image img {
+        height: 600px;
+    }
+    
+    html:lang(ar) .hero img {
+        height: 800px;
+        object-fit: cover;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    html:lang(ar) .menu-icon {
+        display: block;
+        order: 1;
+    }
+    
+    html:lang(ar) .nav-brand {
+        order: 2;
+        flex: 1;
+        text-align: center;
+    }
+    
+    html:lang(ar) .lang-menu {
+        order: 3;
+        position: relative;
+        display: block;
+    }
+    
+    html:lang(ar) nav {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    
+    html:lang(ar) nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgb(114, 61, 61);
+        padding: 20px;
+        text-align: right;
+    }
+    
+    html:lang(ar) .menu-btn:checked ~ ul {
+        display: flex;
+    }
+    
+    html:lang(ar) .container {
+        flex-direction: column;
+        text-align: right;
+    }
+    
+    html:lang(ar) .about-image img,
+    html:lang(ar) .menu-image img {
+        height: 400px;
+        max-width: 100%;
+    }
+    
+    html:lang(ar) .hero img {
+        height: 500px;
+        object-fit: cover;
+    }
+    
+    html:lang(ar) .hero-text {
+        bottom: 40px;
+        right: 20px;
+        left: auto;
+    }
+    
+    html:lang(ar) .hero-text h1 {
+        font-size: 1.8rem;
+        /* SUPPRIMÉ le fond blanc */
+        padding: 0; /* Retour au padding d'origine */
+    }
+    
+    /* Bouton langue mobile */
+    html:lang(ar) .lang-menu label {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+    }
+    
+    html:lang(ar) .lang-menu input:checked ~ ul {
+        top: 45px;
+        right: 0;
+        min-width: 80px;
+    }
+}
+
+/* PETIT MOBILE */
+@media (max-width: 480px) {
+    html:lang(ar) .hero img {
+        height: 400px;
+        object-fit: cover;
+    }
+    
+    html:lang(ar) .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    html:lang(ar) .about-image img,
+    html:lang(ar) .menu-image img {
+        height: 300px;
+    }
+    
+    html:lang(ar) .lang-menu label {
+        padding: 6px 10px;
+    }
 }
